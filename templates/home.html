@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{{ MEDIA_URL }} 
+
+
+{% block contents %}
+    
+    {% for iklan in iklan_list %}
+    <div style="display: inline-block">
+        <div class="card m-3 shadow-lg" style="width: 18rem;" >
+            <div style="width: 18rem;" class="border-bottom">
+                <img style="height:150px; width: auto; display:block;" src="/media/{{iklan.gambar}}" class="card-img-top ml-auto mr-auto" alt="Gambar tidak bisa dimuat">
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">{{iklan.judul|truncatechars:30}}</h6>
+                <h4 class="card-title">Rp. {{iklan.harga_sewa}}/hari</h5>
+                <p class="card-text border-top">{{iklan.mitra.akunmitra.provinsi}}</p>
+                <a href="{% url 'mitra:detailIklan' iklan.slug %}" class="btn btn-primary">Lihat Iklan</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        
+        
+{% endblock contents %}
+    

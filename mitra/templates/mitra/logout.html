@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block contents %}
+
+    <p>Apakah anda yakin untuk logout sebagai {{user}}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="logout" value="ya">
+        <input type="submit" name="logout" value="tidak">
+    </form>
+
+{% endblock contents %}
