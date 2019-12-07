@@ -18,8 +18,8 @@ class Home(ListView):
         if cari != None:
             #object_list = Iklan.objects.filter(judul__icontains=cari)
             object_list = Iklan.objects.filter(Q(judul__icontains=cari)|Q(deskripsi_lain__icontains=cari)|Q(merk__icontains=cari)|Q(tipe_kendaraan__icontains=cari))
-        # elif cari_provinsi != None:
-        #     object_list = Iklan.objects.filter(provinsi=cari_provinsi)
+        elif cari_provinsi != None:
+            object_list = Iklan.objects.filter(mitra__akunmitra__provinsi=cari_provinsi)
         else:
             object_list = Iklan.objects.all()
         return object_list
