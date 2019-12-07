@@ -3,7 +3,20 @@
 
 
 {% block contents %}
-    
+<form method="GET" class="col-lg-6 ml-auto mr-auto mt-4">
+    {% csrf_token %}
+    <input name="cari" style="display: inline-block;" class="form-control form-control-lg col-lg-8 border-info" type="text" placeholder="Cari Iklan">
+    <button type="submit" class="btn float-right btn-info btn-lg col-lg-3">Cari</button>    
+</form>
+
+<div class="container">
+    <form method="GET" class="col-lg-4">
+        {% csrf_token %}
+        {{provinsi_list}}
+        <button type="submit" class="btn btn-secondary">Cari per provinsi</button>
+    </form>
+</div>
+<div class="container mt-4">
     {% for iklan in iklan_list %}
     <div style="display: inline-block">
         <div class="card m-3 shadow-lg" style="width: 18rem;" >
@@ -11,7 +24,7 @@
                 <img style="height:150px; width: auto; display:block;" src="/media/{{iklan.gambar}}" class="card-img-top ml-auto mr-auto" alt="Gambar tidak bisa dimuat">
             </div>
             <div class="card-body">
-                <h6 class="card-title">{{iklan.judul|truncatechars:30}}</h6>
+                <h6 class="card-title">{{iklan.id}}.{{iklan.judul|truncatechars:20}}</h6>
                 <h4 class="card-title">Rp. {{iklan.harga_sewa}}/hari</h5>
                 <p class="card-text border-top">{{iklan.mitra.akunmitra.provinsi}}</p>
                 <a href="{% url 'mitra:detailIklan' iklan.slug %}" class="btn btn-primary">Lihat Iklan</a>
@@ -19,6 +32,7 @@
         </div>
     </div>
     {% endfor %}
+</div>
         
         
 {% endblock contents %}

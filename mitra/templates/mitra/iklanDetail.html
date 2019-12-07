@@ -2,7 +2,17 @@
 
 
 {% block contents %}
+<div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/media/{{object.gambar}}" class="d-block ml-auto mr-auto" style="height: 400px;"alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
     <p>{{object.judul}}</p>
-    <p>{{object.deskripsi_lain}}</p>
+    <p>{{object.deskripsi_lain|linebreaks}}</p>
 {% endblock contents %}
     

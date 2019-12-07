@@ -101,3 +101,6 @@ class Iklan(models.Model):
 
     def __str__(self):
         return '{}. {} | {}'.format(self.id, self.mitra.akunmitra.nama, self.judul)
+
+    class Meta:
+        ordering = ['-id']

@@ -37,6 +37,19 @@ class AkunMitraForm(forms.ModelForm):
             )
         }
 
+class PilihProvinsiForm(forms.ModelForm):
+    class Meta:
+        model = AkunMitra
+        fields = [
+            'provinsi'
+        ]
+        widgets = {
+            'provinsi':forms.Select(
+                attrs={
+                    'class':'form-control',
+                },
+            ),
+        }
 class UserMitra(forms.ModelForm):
     class Meta:
         model = User

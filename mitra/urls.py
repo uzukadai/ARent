@@ -10,7 +10,6 @@ from .views import (
     ManageIklan,
     DeleteIklan,
     DetailIklan,
-    cariIklan,
 )
 app_name = 'mitra'
 urlpatterns = [
@@ -23,5 +22,4 @@ urlpatterns = [
     path('iklanSaya', ManageIklan.as_view(), name='iklanSaya'),
     path('deleteIklan/<int:pk>', DeleteIklan.as_view(), name='deleteIklan'),
     path('detailIklan/<str:slug>', DetailIklan.as_view(), name='detailIklan'),
-    path('cariIklan/<str:cari>', cariIklan, name='cariIklan'),
 ]

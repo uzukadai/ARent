@@ -162,12 +162,12 @@ class DetailIklan(DetailView):
     template_name = 'mitra/iklanDetail.html'
     model = Iklan
 
-def cariIklan(request, cari):
-    pencarian = cari.replace('%20',' ')
-    tampil = Iklan.objects.filter(judul__contains=pencarian)
-    context = {
-        'iklan_list':tampil,
-        'page_title':'Home',
-    }
+# def cariIklan(request, cari):
+#     pencarian = cari.replace('%20',' ')
+#     tampil = Iklan.objects.filter(judul__contains=pencarian)
+#     context = {
+#         'iklan_list':tampil,
+#         'page_title':'Home',
+#     }
 
-    return render(request, 'home.html', context)
+#     return render(request, 'home.html', context)
