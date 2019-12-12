@@ -50,6 +50,7 @@ class PilihProvinsiForm(forms.ModelForm):
                 },
             ),
         }
+        
 class UserMitra(forms.ModelForm):
     class Meta:
         model = User
